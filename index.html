@@ -71,7 +71,7 @@
     }
   })
 
-  let color = document.cookie || '#00ff00'
+  let color = document.cookie.includes('bg=') ? document.cookie.replace('bg='): '#00ff00'
 
   const updateBackground = () => document.getElementsByTagName('body')[0].style.backgroundColor = color
 
@@ -81,7 +81,7 @@
     color = c.value
     updateBackground()
 
-    document.cookie = color
+    document.cookie = `bg=${color}`
   }
 
   document.getElementById('color').value = color
